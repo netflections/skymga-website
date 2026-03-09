@@ -1,0 +1,94 @@
+.champions-spotlight {
+  background: linear-gradient(135deg, var(--sky-dark) 0%, #2b5070 100%);
+  color: white;
+  padding: 2rem 2.5rem;
+  border-radius: var(--radius-md);
+  margin-top: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.champions-spotlight::before {
+  content: '🏆';
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 4rem;
+  opacity: 0.15;
+}
+
+.spotlight-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sky-light);
+  margin-bottom: 0.35rem;
+}
+
+.spotlight-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+
+.spotlight-detail {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.year-cell {
+  font-weight: 600;
+  color: var(--gray-600);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.champion-name {
+  font-weight: 500;
+  color: var(--sky-dark);
+}
+
+.latest-year td {
+  background: #fffbf0 !important;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 0.55rem 1.25rem;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 999px;
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tab-btn:hover {
+  border-color: var(--sky-blue);
+  color: var(--sky-blue);
+}
+
+.tab-btn.active {
+  background: var(--sky-dark);
+  border-color: var(--sky-dark);
+  color: var(--white);
+}

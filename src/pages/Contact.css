@@ -1,0 +1,157 @@
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.officers-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.officer-card {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  border: 1.5px solid var(--gray-200);
+}
+
+.officer-card:hover {
+  border-color: var(--sky-blue);
+  box-shadow: var(--shadow-md);
+}
+
+.officer-avatar {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--sky-dark), var(--sky-blue));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.officer-info {
+  flex: 1;
+}
+
+.officer-role {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sky-blue);
+  margin-bottom: 0.15rem;
+}
+
+.officer-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--sky-dark);
+  margin-bottom: 0.35rem;
+}
+
+.officer-responsibilities {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.officer-email {
+  font-size: 0.85rem;
+  color: var(--sky-blue);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.officer-email:hover {
+  color: var(--sky-dark);
+  text-decoration: underline;
+}
+
+/* Aside */
+.contact-aside {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-card {
+  padding: 1.5rem;
+}
+
+.contact-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--sky-dark);
+  margin-bottom: 0.6rem;
+}
+
+.contact-card p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+.club-address {
+  font-style: normal;
+  margin-top: 0.5rem;
+}
+
+.club-address p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin-bottom: 0.25rem;
+}
+
+.club-address a {
+  color: var(--sky-blue);
+  text-decoration: none;
+}
+
+.club-address a:hover {
+  text-decoration: underline;
+}
+
+.meeting-list {
+  list-style: none;
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.meeting-list li {
+  font-size: 0.875rem;
+  color: var(--gray-700, #4a5568);
+}
+
+@media (max-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-aside {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .officer-card {
+    flex-direction: column;
+  }
+}
