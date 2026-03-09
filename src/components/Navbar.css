@@ -23,43 +23,14 @@
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.logo-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--sky-blue);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.15;
-}
-
-.logo-main {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: 0.01em;
-}
-
-.logo-sub {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 400;
-  color: var(--sky-light);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.navbar-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
 }
 
 /* Desktop links */
