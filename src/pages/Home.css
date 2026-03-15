@@ -185,14 +185,9 @@
 
 .announce-layout {
   display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 340px;
+  gap: 3rem;
   align-items: start;
-}
-
-.announce-header {
-  position: sticky;
-  top: 90px;
 }
 
 .announce-list {
@@ -236,6 +231,84 @@
   font-size: 0.95rem;
   color: var(--gray-600);
   line-height: 1.6;
+}
+
+/* Email opt-in */
+.optin-aside {
+  position: sticky;
+  top: 90px;
+}
+
+.optin-card {
+  padding: 1.75rem;
+}
+
+.optin-card h3 {
+  font-family: var(--font-display);
+  color: var(--sky-dark);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.optin-card > p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.optin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.optin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.optin-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--sky-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.optin-field input {
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--gray-400);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--gray-800);
+  transition: border-color var(--transition);
+}
+
+.optin-field input:focus {
+  outline: none;
+  border-color: var(--sky-blue);
+}
+
+.optin-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.25rem;
+}
+
+.optin-success {
+  color: #2d6a4f;
+  background: #d8f3dc;
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+}
+
+.optin-error {
+  color: #a94442;
+  font-size: 0.875rem;
 }
 
 /* About strip */
@@ -315,7 +388,7 @@
     gap: 2rem;
   }
 
-  .announce-header {
+  .optin-aside {
     position: static;
   }
 

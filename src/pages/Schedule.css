@@ -22,6 +22,16 @@
   min-width: 200px;
 }
 
+.event-link {
+  color: var(--sky-blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.event-link:hover {
+  color: var(--sky-dark);
+}
+
 .notes-cell {
   color: var(--gray-600);
   font-size: 0.875rem;

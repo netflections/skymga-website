@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { supabase } from '../lib/supabaseClient'
 import './Home.css'
 
 const quickLinks = [
@@ -50,6 +52,30 @@ const announcements = [
 ]
 
 export default function Home() {
+  const [optinName, setOptinName] = useState('')
+  const [optinEmail, setOptinEmail] = useState('')
+  const [optinStatus, setOptinStatus] = useState(null) // null | 'loading' | 'success' | 'error'
+  const [optinError, setOptinError] = useState('')
+
+  async function handleOptinSubmit(e) {
+    e.preventDefault()
+    if (!optinName.trim() || !optinEmail.trim()) {
+      setOptinError('Please enter your name and email address.')
+      setOptinStatus('error')
+      return
+    }
+    setOptinStatus('loading')
+    const { error } = await supabase.functions.invoke('mailerlite-subscribe', {
+      body: { name: optinName.trim(), email: optinEmail.trim() },
+    })
+    if (error) {
+      setOptinError('Something went wrong. Please try again.')
+      setOptinStatus('error')
+    } else {
+      setOptinStatus('success')
+    }
+  }
+
   return (
     <div className="home">
       {/* Hero */}
@@ -62,10 +88,6 @@ export default function Home() {
             Camaraderie, competition, and a love of the game.<br />
             Welcome to the Sky Meadow MGA.
           </p>
-          <div className="hero-actions">
-            <Link to="/schedule" className="btn btn-primary">View Schedule</Link>
-            <Link to="/contact" className="btn btn-ghost">Contact Officers</Link>
-          </div>
         </div>
         <div className="hero-wave" aria-hidden="true">
           <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -74,47 +96,68 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick links */}
-      <section className="section quick-links-section">
-        <div className="container">
-          <div className="text-center mb-lg">
-            <h2 className="section-title" style={{textAlign:'center'}}>What's on Your Mind?</h2>
-            <div className="divider centered" />
-          </div>
-          <div className="quick-links-grid">
-            {quickLinks.map((item) => (
-              <Link key={item.to} to={item.to} className="quick-card">
-                <span className="quick-icon">{item.icon}</span>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-                <span className="quick-arrow">→</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Announcements */}
+      {/* Announcements + Email Opt-In */}
       <section className="announcements-section section">
         <div className="container">
           <div className="announce-layout">
-            <div className="announce-header">
+
+            <div>
               <h2 className="section-title">Announcements</h2>
               <div className="divider" />
               <p className="section-subtitle">Latest news from the MGA</p>
+              <div className="announce-list">
+                {announcements.map((item, i) => (
+                  <article key={i} className="announce-item">
+                    <div className="announce-meta">
+                      <span className="announce-date">{item.date}</span>
+                      {item.badge && <span className="badge badge-blue">{item.badge}</span>}
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </article>
+                ))}
+              </div>
             </div>
-            <div className="announce-list">
-              {announcements.map((item, i) => (
-                <article key={i} className="announce-item">
-                  <div className="announce-meta">
-                    <span className="announce-date">{item.date}</span>
-                    {item.badge && <span className="badge badge-blue">{item.badge}</span>}
-                  </div>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </article>
-              ))}
-            </div>
+
+            <aside className="optin-aside">
+              <div className="optin-card card">
+                <h3>MGA Email Opt-In</h3>
+                <p>Stay up to date with MGA news, event announcements, and results. Enter your information below to join the mailing list.</p>
+                {optinStatus === 'success' ? (
+                  <p className="optin-success">You're subscribed! Thanks for signing up.</p>
+                ) : (
+                  <form className="optin-form" onSubmit={handleOptinSubmit}>
+                    <div className="optin-field">
+                      <label htmlFor="optin-name">Full Name</label>
+                      <input
+                        id="optin-name"
+                        type="text"
+                        placeholder="Your full name"
+                        value={optinName}
+                        onChange={e => setOptinName(e.target.value)}
+                      />
+                    </div>
+                    <div className="optin-field">
+                      <label htmlFor="optin-email">Email Address</label>
+                      <input
+                        id="optin-email"
+                        type="email"
+                        placeholder="your@email.com"
+                        value={optinEmail}
+                        onChange={e => setOptinEmail(e.target.value)}
+                      />
+                    </div>
+                    {optinStatus === 'error' && (
+                      <p className="optin-error">{optinError}</p>
+                    )}
+                    <button type="submit" className="btn btn-primary optin-btn" disabled={optinStatus === 'loading'}>
+                      {optinStatus === 'loading' ? 'Subscribing...' : 'Subscribe'}
+                    </button>
+                  </form>
+                )}
+              </div>
+            </aside>
+
           </div>
         </div>
       </section>

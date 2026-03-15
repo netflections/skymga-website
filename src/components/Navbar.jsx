@@ -4,10 +4,9 @@ import './Navbar.css'
 
 const navLinks = [
   { to: '/', label: 'Home', exact: true },
-  { to: '/schedule', label: 'Schedule & Events' },
-  { to: '/rules', label: 'Rules & Handicaps' },
-  { to: '/champions', label: 'Past Champions' },
-  { to: '/contact', label: 'Contact & Officers' },
+  { to: '/schedule', label: 'Schedule' },
+  { to: '/events', label: 'Events' },
+  { to: '/bylaws', label: 'Bylaws' },
   { to: '/vote', label: 'Vote' },
 ]
 
