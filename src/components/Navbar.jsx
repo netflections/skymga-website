@@ -4,6 +4,7 @@ import './Navbar.css'
 
 const navLinks = [
   { to: '/', label: 'Home', exact: true },
+  { to: '/announcements', label: 'Announcements' },
   { to: '/schedule', label: 'Schedule' },
   { to: '/events', label: 'Events' },
   { to: '/bylaws', label: 'Bylaws' },

@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
+import Announcements from './pages/Announcements'
+import AnnouncementDetail from './pages/AnnouncementDetail'
 import Schedule from './pages/Schedule'
 import Events from './pages/Events'
 import Bylaws from './pages/Bylaws'
@@ -18,6 +20,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="announcements" element={<Announcements />} />
+          <Route path="announcements/:slug" element={<AnnouncementDetail />} />
           <Route path="schedule" element={<Schedule />} />
           <Route path="events" element={<Events />} />
           <Route path="events/member-member-1day" element={<MemberMember1Day />} />
