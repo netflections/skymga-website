@@ -8,6 +8,7 @@ const navLinks = [
   { to: '/rules', label: 'Rules & Handicaps' },
   { to: '/champions', label: 'Past Champions' },
   { to: '/contact', label: 'Contact & Officers' },
+  { to: '/vote', label: 'Vote' },
 ]
 
 export default function Navbar() {

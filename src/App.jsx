@@ -5,6 +5,7 @@ import Schedule from './pages/Schedule'
 import Rules from './pages/Rules'
 import Champions from './pages/Champions'
 import Contact from './pages/Contact'
+import Vote from './pages/Vote'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="rules" element={<Rules />} />
           <Route path="champions" element={<Champions />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="vote" element={<Vote />} />
         </Route>
       </Routes>
     </BrowserRouter>
