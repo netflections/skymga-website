@@ -14,7 +14,7 @@ No linting, type-checking, or tests are configured.
 
 ## Architecture
 
-**React + Vite SPA** deployed to GoDaddy shared hosting (Apache) with Cloudflare DNS/SSL. Also has a `vercel.json` for potential Vercel deployment.
+**React + Vite SPA** deployed to Vercel with Cloudflare DNS/SSL.
 
 **Routing** (`src/App.jsx`): React Router v6 with a shared `<Layout>` wrapper (Navbar + `<Outlet>` + Footer) around 5 routes: `/`, `/schedule`, `/rules`, `/champions`, `/contact`.
 
@@ -26,4 +26,4 @@ No linting, type-checking, or tests are configured.
 
 ## Deployment
 
-There is no CI/CD pipeline. Deploy by building locally (`npm run build`) and uploading the `dist/` folder to GoDaddy via FTP.
+Deployed via Vercel. Every push to `main` triggers an automatic deploy. SPA routing is handled by the `rewrites` rule in `vercel.json`.
