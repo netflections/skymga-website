@@ -36,13 +36,13 @@ function CandidateCard({ candidate, selected, onToggle, disabled }) {
   )
 }
 
-function BallotResults({ ballotId }) {
+function BallotResults({ ballotId, finalized }) {
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     supabase
-      .from('ballot_results')
+      .from(finalized ? 'ballot_results_certified' : 'ballot_results')
       .select('*')
       .eq('ballot_id', ballotId)
       .order('vote_count', { ascending: false })
@@ -50,7 +50,7 @@ function BallotResults({ ballotId }) {
         setResults(data || [])
         setLoading(false)
       })
-  }, [ballotId])
+  }, [ballotId, finalized])
 
   if (loading) return <p className="vote-status-msg">Loading results...</p>
   if (!results.length) return <p className="vote-status-msg">No results available.</p>
@@ -59,7 +59,7 @@ function BallotResults({ ballotId }) {
 
   return (
     <div className="results-section">
-      <h2 className="section-title">Final Results</h2>
+      <h2 className="section-title">{finalized ? 'Final Results' : 'Preliminary Results'}</h2>
       <div className="divider" />
       <table className="styled-table results-table">
         <thead>
@@ -112,10 +112,14 @@ export default function Vote() {
       .eq('is_active', true)
       .then(({ data }) => {
         if (data && data.length) {
-          const sorted = data.map(b => ({
-            ...b,
-            candidates: [...b.candidates].sort((a, z) => a.display_order - z.display_order),
-          }))
+          const sorted = data.map(b => {
+            const shuffled = [...b.candidates]
+            for (let i = shuffled.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+            }
+            return { ...b, candidates: shuffled }
+          })
           setBallots(sorted)
           setActiveBallotId(sorted[0].id)
         }
@@ -295,7 +299,7 @@ export default function Vote() {
               <p className="vote-status-msg closed">
                 Voting for this ballot closed on {formatDate(activeBallot.voting_end)}.
               </p>
-              <BallotResults ballotId={activeBallotId} />
+              <BallotResults ballotId={activeBallotId} finalized={activeBallot.results_finalized} />
             </>
           )}
 
