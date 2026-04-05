@@ -1,9 +1,36 @@
 export const announcements = [
   {
+    slug: '2026-04-05',
+    date: 'April 5, 2026',
+    title: 'Reminder - Opening Night this Tue, Apr 7 @ 7pm',
+    badge: 'New',
+    snippet: 'The "Opening Night" gathering for Sky Meadow Men\'s and Women\'s Golf Associations is this Tuesday, April 7 at 7pm in the ballroom at Sky Meadow.',
+    body: [
+      { type: 'text', content: 'All,' },
+      { type: 'text', content: 'The "Opening Night" gathering for Sky Meadow Men\'s and Women\'s Golf Associations is this Tuesday, April 7 at 7pm in the ballroom at Sky Meadow.' },
+      { type: 'text', content: 'The MGA Board plans to share brief remarks on initial objectives and priorities for the 2026 season alongside welcome remarks from club management.' },
+      { type: 'text', content: 'A cash bar will be available in the ballroom. The Oak Room and Grotto are expected to be open their normal Tuesday hours - 11:30 AM – 8:30pm for lunch and dinner.' },
+      { type: 'text', content: 'We look forward to seeing you there!' },
+      { type: 'signature', name: 'Sky MGA' },
+    ],
+  },
+  {
+    slug: '2026-03-27',
+    date: 'March 27, 2026',
+    title: '2026 Board Elections',
+    snippet: 'Voting is now open for the 2026 Sky Meadow Men\'s Golf Association Board of Directors. Voting period: 9am EDT on Fri, Mar 27 through 5pm EDT on Fri, Apr 3.',
+    body: [
+      { type: 'text', content: 'All,' },
+      { type: 'text', content: 'Voting is now open for the 2026 Sky Meadow Men\'s Golf Association Board of Directors.' },
+      { type: 'text', content: 'Voting period: 9am EDT on Fri, Mar 27 through 5pm EDT on Fri, Apr 3.' },
+      { type: 'text', content: 'The 2026 board will consist of five (5) members: Mike Cattell plus the four (4) members who receive the most votes. The Board\'s initial responsibilities will be to finalize and ratify the proposed bylaws (an initial draft is posted on www.skymga.org) which includes clearly defined responsibilities for the individual board roles and committees, and which determine which role each Board member will fulfill based upon the aptitude and experience. This will be immediately followed by engaging with any and all other volunteers from the MGA for initiatives for the 2026 season.' },
+      { type: 'text', content: 'Each MGA member may submit one (1) ballot containing up to four (4) votes. Preliminary results will become immediately available on the website as soon as the voting period ends.' },
+    ],
+  },
+  {
     slug: '2026-03-14',
     date: 'March 14, 2026',
     title: 'Message From the MGA',
-    badge: 'New',
     snippet: 'Sky Meadow is enjoying tremendous momentum thanks to recent investments by club ownership and leadership. We\'re proposing the formation of a formal Board of Directors to help the MGA continue to thrive.',
     body: [
       { type: 'text', content: 'All,' },

@@ -113,6 +113,16 @@ export default function Home() {
                   </form>
                 )}
               </div>
+              <div className="whatsapp-card card">
+                <h3>Join the MGA WhatsApp Group</h3>
+                <p>Don't want more email? Join the WhatsApp group to keep up with MGA news.</p>
+                <a href="https://chat.whatsapp.com/Dl40pN030cfHOPjbcrRhEp?mode=gi_t" target="_blank" rel="noopener noreferrer">
+                  <img src="/WhatsApp-QR-Code.png" alt="Scan to join the MGA WhatsApp group" className="whatsapp-qr" />
+                </a>
+                <a href="https://chat.whatsapp.com/Dl40pN030cfHOPjbcrRhEp?mode=gi_t" target="_blank" rel="noopener noreferrer" className="btn btn-primary whatsapp-btn">
+                  Join WhatsApp Group
+                </a>
+              </div>
             </aside>
 
           </div>

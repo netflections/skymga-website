@@ -311,6 +311,40 @@
   font-size: 0.875rem;
 }
 
+/* WhatsApp box */
+.whatsapp-card {
+  margin-top: 1.25rem;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.whatsapp-card h3 {
+  font-family: var(--font-display);
+  color: var(--sky-dark);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.whatsapp-card > p {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.whatsapp-qr {
+  display: block;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 1.25rem;
+  border-radius: var(--radius);
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  justify-content: center;
+}
+
 /* About strip */
 .about-strip {
   background: var(--sky-dark);
