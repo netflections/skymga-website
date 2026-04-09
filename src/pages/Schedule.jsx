@@ -3,7 +3,7 @@ import './Schedule.css'
 
 const schedule2026 = [
   { date: 'Tue, Apr 7',         name: 'Opening Night',             notes: 'Banquet Hall @ 7pm',   link: null },
-  { date: 'Sat, May 23',        name: '1-Day Member-Member',       notes: '',                     link: '/events/member-member-1day' },
+  { date: 'Sat, May 30',        name: '1-Day Member-Member',       notes: '',                     link: '/events/member-member-1day' },
   { date: 'Sat–Sun, Jun 6–7',   name: 'Sr. Club Championship',     notes: '',                     link: '/events/sr-club-championship' },
   { date: 'Sat, Jun 27',        name: '1-Day Member-Guest',        notes: '',                     link: '/events/member-guest-1day' },
   { date: 'Thu–Sat, Jul 16–18', name: "Gentlemen's Invitational",  notes: '',                     link: '/events/gentlemens-invitational' },

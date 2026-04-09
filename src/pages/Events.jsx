@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import './Schedule.css'
 
 const events2026 = [
-  { date: 'Sat, May 23',        name: '1-Day Member-Member',      link: '/events/member-member-1day' },
+  { date: 'Sat, May 30',        name: '1-Day Member-Member',      link: '/events/member-member-1day' },
   { date: 'Sat–Sun, Jun 6–7',   name: 'Sr. Club Championship',    link: '/events/sr-club-championship' },
   { date: 'Sat, Jun 27',        name: '1-Day Member-Guest',       link: '/events/member-guest-1day' },
   { date: 'Thu–Sat, Jul 16–18', name: "Gentlemen's Invitational", link: '/events/gentlemens-invitational' },
