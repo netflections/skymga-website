@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { supabase } from '../lib/supabaseClient'
 import { announcements } from '../data/announcements'
 import './Announcements.css'
 import './Home.css'
+
+const MAILERLITE_FORM_URL = 'https://assets.mailerlite.com/jsonp/2173274/forms/185953123381019715/subscribe'
 
 export default function Home() {
   const [optinName, setOptinName] = useState('')
@@ -19,14 +20,21 @@ export default function Home() {
       return
     }
     setOptinStatus('loading')
-    const { error } = await supabase.functions.invoke('mailerlite-subscribe', {
-      body: { name: optinName.trim(), email: optinEmail.trim() },
-    })
-    if (error) {
+    const formData = new FormData()
+    formData.append('fields[name]', optinName.trim())
+    formData.append('fields[email]', optinEmail.trim())
+    formData.append('ml-submit', '1')
+    formData.append('anticsrf', 'true')
+    try {
+      await fetch(MAILERLITE_FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData,
+      })
+      setOptinStatus('success')
+    } catch {
       setOptinError('Something went wrong. Please try again.')
       setOptinStatus('error')
-    } else {
-      setOptinStatus('success')
     }
   }
 

@@ -11,6 +11,8 @@ const navLinks = [
   { to: '/vote', label: 'Vote' },
 ]
 
+const externalLinks = []
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -51,6 +53,11 @@ export default function Navbar() {
               {label}
             </NavLink>
           ))}
+          {externalLinks.map(({ href, label }) => (
+            <a key={href} href={href} className="nav-link" target="_blank" rel="noopener noreferrer">
+              {label}
+            </a>
+          ))}
         </nav>
 
         {/* Mobile hamburger */}
@@ -78,6 +85,11 @@ export default function Navbar() {
             >
               {label}
             </NavLink>
+          ))}
+          {externalLinks.map(({ href, label }) => (
+            <a key={href} href={href} className="mobile-link" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+              {label}
+            </a>
           ))}
         </nav>
       </div>
