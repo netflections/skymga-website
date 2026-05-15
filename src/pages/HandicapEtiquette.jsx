@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './HandicapEtiquette.css'
 
 const TABS = [
@@ -30,7 +30,25 @@ const SUBJECTS = [
 const COMMITTEE_EMAIL = 'handicap@skymga.org'
 
 export default function HandicapEtiquette() {
-  const [tab, setTab] = useState('overview')
+  const VALID_IDS = TABS.map(t => t.id)
+
+  function getTabFromHash() {
+    const hash = window.location.hash.replace('#', '')
+    return VALID_IDS.includes(hash) ? hash : 'overview'
+  }
+
+  const [tab, setTab] = useState(getTabFromHash)
+
+  useEffect(() => {
+    const onHashChange = () => setTab(getTabFromHash())
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
+
+  function switchTab(id) {
+    window.location.hash = id
+    setTab(id)
+  }
 
   return (
     <div>
@@ -50,7 +68,7 @@ export default function HandicapEtiquette() {
                 role="tab"
                 aria-selected={tab === t.id}
                 className={`he-tab${tab === t.id ? ' active' : ''}`}
-                onClick={() => setTab(t.id)}
+                onClick={() => switchTab(t.id)}
               >
                 {t.label}
               </button>
@@ -61,9 +79,9 @@ export default function HandicapEtiquette() {
 
       <section className="section">
         <div className="container">
-          {tab === 'overview' && <Overview onContact={() => setTab('contact')} />}
-          {tab === 'etiquette' && <Etiquette onContact={() => setTab('contact')} />}
-          {tab === 'policy' && <Policy onContact={() => setTab('contact')} />}
+          {tab === 'overview' && <Overview onContact={() => switchTab('contact')} />}
+          {tab === 'etiquette' && <Etiquette onContact={() => switchTab('contact')} />}
+          {tab === 'policy' && <Policy onContact={() => switchTab('contact')} />}
           {tab === 'contact' && <Contact />}
         </div>
       </section>
