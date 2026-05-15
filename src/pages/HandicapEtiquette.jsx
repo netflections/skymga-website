@@ -9,11 +9,11 @@ const TABS = [
 ]
 
 const COMMITTEE = [
-  { role: 'Committee Chair', name: 'TBD', email: '' },
-  { role: 'Handicap Administrator', name: 'TBD', email: '' },
-  { role: 'Etiquette & Rules Liaison', name: 'TBD', email: '' },
-  { role: 'Member-at-Large', name: 'TBD', email: '' },
-  { role: 'Member-at-Large', name: 'TBD', email: '' },
+  { role: 'Committee Chair', name: "Mike O'Keefe" },
+  { role: 'Member-at-Large', name: 'Chris Butcher' },
+  { role: 'Member-at-Large', name: 'Anil Patel' },
+  { role: 'Member-at-Large', name: 'Tim Tiches' },
+  { role: 'Member-at-Large', name: 'Joe Turner' },
 ]
 
 const SUBJECTS = [
@@ -96,7 +96,7 @@ function Overview({ onContact }) {
       <ol className="he-objectives">
         <li>
           <strong>Handicap Integrity.</strong> Ensure that every member's Handicap Index accurately
-          reflects their demonstrated ability, in compliance with the USGA Rules of Handicapping, so that
+          reflects their demonstrated ability, in compliance with the <a href="https://www.usga.org/handicapping/roh/rules-of-handicapping.html#cshid=[object%20Object]" target="_blank" rel="noopener noreferrer">USGA Rules of Handicapping</a>, so that
           competition among players of all skill levels is fair and meaningful.
         </li>
         <li>
@@ -122,14 +122,13 @@ function Overview({ onContact }) {
       <div className="he-table-wrap">
         <table className="styled-table">
           <thead>
-            <tr><th>Role</th><th>Name</th><th>Contact</th></tr>
+            <tr><th>Role</th><th>Name</th></tr>
           </thead>
           <tbody>
             {COMMITTEE.map((m, i) => (
               <tr key={i}>
                 <td>{m.role}</td>
                 <td>{m.name}</td>
-                <td>{m.email ? <a href={`mailto:${m.email}`}>{m.email}</a> : <span className="he-muted">—</span>}</td>
               </tr>
             ))}
           </tbody>
@@ -350,7 +349,7 @@ function Policy({ onContact }) {
       <h3 className="he-h3">Committee Authority & Purview</h3>
       <p>
         The Handicap & Etiquette Committee operates under the authority granted to Handicap Committees by the
-        USGA Rules of Handicapping.
+        <a href="https://www.usga.org/handicapping/roh/rules-of-handicapping.html#cshid=[object%20Object]" target="_blank" rel="noopener noreferrer">USGA Rules of Handicapping</a>.
       </p>
 
       <div className="he-card">
@@ -500,7 +499,7 @@ function Policy({ onContact }) {
 function Contact() {
   const [form, setForm] = useState({
     name: '', memberId: '', email: '', phone: '',
-    subject: SUBJECTS[0], message: '', isMember: false,
+    subject: SUBJECTS[0], message: '',
   })
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
   const [errorMsg, setErrorMsg] = useState('')
@@ -534,7 +533,6 @@ function Contact() {
     form.name.trim() &&
     form.email.trim() &&
     form.message.trim().length >= 20 &&
-    form.isMember &&
     status !== 'sending'
 
   return (
@@ -591,17 +589,6 @@ function Contact() {
                 value={form.message}
                 onChange={e => update('message', e.target.value)}
               />
-            </div>
-            <div className="he-field he-field-full he-checkbox">
-              <label>
-                <input
-                  type="checkbox"
-                  required
-                  checked={form.isMember}
-                  onChange={e => update('isMember', e.target.checked)}
-                />
-                <span>I am a Sky Meadow member.</span>
-              </label>
             </div>
           </div>
           {status === 'error' && (

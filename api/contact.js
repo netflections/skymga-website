@@ -9,16 +9,13 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { name, memberId, email, phone, subject, message, isMember } = req.body || {}
+  const { name, memberId, email, phone, subject, message } = req.body || {}
 
   if (!name?.trim() || !email?.trim() || !subject?.trim() || !message?.trim()) {
     return res.status(400).json({ error: 'Missing required fields.' })
   }
   if (message.trim().length < 20) {
     return res.status(400).json({ error: 'Message must be at least 20 characters.' })
-  }
-  if (!isMember) {
-    return res.status(400).json({ error: 'Member confirmation is required.' })
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ error: 'Invalid email address.' })
