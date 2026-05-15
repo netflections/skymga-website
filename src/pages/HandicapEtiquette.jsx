@@ -217,11 +217,11 @@ function Etiquette({ onContact }) {
         <div className="he-targets">
           <div className="he-target">
             <span className="he-target-label">9 holes</span>
-            <span className="he-target-value">2:15 or less</span>
+            <span className="he-target-value">2:10 or less</span>
           </div>
           <div className="he-target">
             <span className="he-target-label">18 holes</span>
-            <span className="he-target-value">4:30 or less</span>
+            <span className="he-target-value">4:20 or less</span>
           </div>
         </div>
         <p className="he-subhead">Practical habits that keep pace:</p>
