@@ -3,10 +3,9 @@ import { NavLink, Link } from 'react-router-dom'
 import './Navbar.css'
 
 const navLinks = [
-  { to: '/', label: 'Home', exact: true },
   { to: '/announcements', label: 'Announcements' },
   { to: '/schedule', label: 'Schedule' },
-  { to: '/events', label: 'Events' },
+  { to: '/handicap-etiquette', label: 'Handicap & Etiquette' },
   { to: '/bylaws', label: 'Bylaws' },
   { to: '/vote', label: 'Vote' },
 ]

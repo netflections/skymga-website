@@ -7,6 +7,7 @@ import Schedule from './pages/Schedule'
 import Events from './pages/Events'
 import Bylaws from './pages/Bylaws'
 import Vote from './pages/Vote'
+import HandicapEtiquette from './pages/HandicapEtiquette'
 import MemberMember1Day from './pages/events/MemberMember1Day'
 import SrClubChampionship from './pages/events/SrClubChampionship'
 import MemberGuest1Day from './pages/events/MemberGuest1Day'
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="events/mens-club-championship" element={<MensClubChampionship />} />
           <Route path="events/member-member" element={<MemberMember />} />
           <Route path="bylaws" element={<Bylaws />} />
+          <Route path="handicap-etiquette" element={<HandicapEtiquette />} />
           <Route path="vote" element={<Vote />} />
         </Route>
       </Routes>
