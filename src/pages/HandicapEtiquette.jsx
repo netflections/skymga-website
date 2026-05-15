@@ -496,14 +496,6 @@ function Policy({ onContact }) {
             in full, and render a written decision within <strong>21 days</strong> of receiving the formal appeal.
           </p>
         </li>
-        <li>
-          <div className="he-step-head">Step 4 — Escalation to the Authorized Association</div>
-          <p>
-            If a member believes the committee's decision on appeal remains incorrect, they may escalate the
-            matter to the club's Authorized Association in accordance with that body's appeals procedures. The
-            committee will cooperate fully with any such review.
-          </p>
-        </li>
       </ol>
 
       <p className="he-note">
